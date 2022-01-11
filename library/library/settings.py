@@ -2,7 +2,7 @@ from pathlib import Path
 
 BASE_DIR = Path(__file__).resolve().parent.parent
 SECRET_KEY = 'django-insecure-n5o5_17f7%%a^6nj6s$4kk-rp@o^gri%b2y!naxrxcybwejkj&'
-DEBUG = False
+DEBUG = True
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
     'django.contrib.admin',
@@ -66,30 +66,30 @@ USE_I18N = True
 USE_TZ = True
 STATIC_URL = 'static/'
 DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
-LOGGING = {
-    'version': 1,
-    'loggers': {
-        'django': {
-            'handlers': ['file'],
-            'level': 'DEBUG'
-        }
-    },
-    'handlers': {
-        'file': {
-            'level': 'DEBUG',
-            'class': 'logging.FileHandler',
-            'filename': './logs/debug.log',
-            'formatter': 'simpleRe'
-        }
-    },
-    'formatters': {
-        'simpleRe': {
-            'format': '{levelname} {asctime} {module} {message}',
-            'style': '{'
-        }
-    }
-}
+# LOGGING = {
+#     'version': 1,
+#     'loggers': {
+#         'django': {
+#             'handlers': ['file'],
+#             'level': 'DEBUG'
+#         }
+#     },
+#     'handlers': {
+#         'file': {
+#             'level': 'DEBUG',
+#             'class': 'logging.FileHandler',
+#             'filename': './logs/debug.log',
+#             'formatter': 'simpleRe'
+#         }
+#     },
+#     'formatters': {
+#         'simpleRe': {
+#             'format': '{levelname} {asctime} {module} {message}',
+#             'style': '{'
+#         }
+#     }
+# }
 
-REST_FRAMEWORK = {
-    'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',)
-}
+# REST_FRAMEWORK = {
+#     'DEFAULT_RENDERER_CLASSES': ('rest_framework.renderers.JSONRenderer',)
+# }

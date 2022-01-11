@@ -35,10 +35,19 @@ class Customer(models.Model):
 
     def favorite_author(self):
         authors = {}
+        authors_data = []
         for book in self.books_issued.all():
             for author in book.author.all():
-                if author in authors:
-                    authors[str(author)] += 1
+                if author.id in authors:
+                    authors[author.id] += 1
                 else:
-                    authors[str(author)] = 1
-        return max(authors, key= lambda x: authors[x]) if authors.keys() else None
+                    authors[author.id] = 1
+                    authors_data.append(author)
+        
+        if authors.keys():
+            fav_author_id = max(authors, key= lambda x: authors[x])
+            for author in authors_data:
+                if author.id == fav_author_id:
+                    return author.name
+        else:
+            return None
