@@ -1,12 +1,5 @@
 from django.db import models
 from django.core.validators import MaxValueValidator, MinValueValidator
-# from django.core.exceptions import ValidationError
-
-# def validate_books_issued_out(value):
-#         if value <= 5:
-#             return value
-#         else:
-#             raise ValidationError('Currently no book is available to issue')
 
 class Author(models.Model):
     name = models.CharField(max_length=100, null=False, blank=False)
