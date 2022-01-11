@@ -12,11 +12,11 @@ class BookSerializers(serializers.ModelSerializer):
         model = Book
         fields = ['id', 'name', 'title', 'author', 'rating', 'popularity', 'books_issued_out', 'inventory_available']
     
-    def validate(self, data):
-        if data['books_issued_out'] > data['inventory_available']:
-            raise serializers.ValidationError(
-            'Books not available')
-        return data
+    # def validate(self, data):
+    #     if data['books_issued_out'] > data['inventory_available']:
+    #         raise serializers.ValidationError(
+    #         'Books not available')
+    #     return data
 
 class CustomerSerializers(serializers.ModelSerializer):
     books_issued = serializers.StringRelatedField(many=True, read_only=True)
