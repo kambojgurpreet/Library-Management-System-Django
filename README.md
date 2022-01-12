@@ -28,12 +28,13 @@ Library Management System APIs implemented using DRF
 
     pip install -r requirements.txt
 
+#### Note
+* **Create library/logs/debug.log**
+* **Add library/library/config.json**
+
 ### Usage
     
     cd library
-    
-    #### create logs/debug.log
-    
     python manage.py makemigrations
     python manage.py migrate
     python manage.py makemigrations api
