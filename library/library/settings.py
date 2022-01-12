@@ -1,7 +1,9 @@
-from pathlib import Path
-
+from pathlib import Path 
+import json
 BASE_DIR = Path(__file__).resolve().parent.parent
-SECRET_KEY = 'django-insecure-n5o5_17f7%%a^6nj6s$4kk-rp@o^gri%b2y!naxrxcybwejkj&'
+f = open(Path(__file__).resolve().parent / 'config.json')
+config_data = json.load(f)
+SECRET_KEY = config_data['secret_key']
 DEBUG = False
 ALLOWED_HOSTS = ['*']
 INSTALLED_APPS = [
@@ -42,8 +44,8 @@ TEMPLATES = [
 WSGI_APPLICATION = 'library.wsgi.application'
 DATABASES = {
     'default': {
-        'ENGINE': 'django.db.backends.sqlite3',
-        'NAME': BASE_DIR / 'db.sqlite3',
+        'ENGINE': config_data['db_engine'],
+        'NAME': BASE_DIR / config_data['db_name'],
     }
 }
 AUTH_PASSWORD_VALIDATORS = [
